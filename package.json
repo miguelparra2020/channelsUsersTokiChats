@@ -1,0 +1,32 @@
+{
+  "name": "channelsuserstokichats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/server.ts",
+    "prod": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguelparra2020/channelsUsersTokiChats.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miguelparra2020/channelsUsersTokiChats/issues"
+  },
+  "homepage": "https://github.com/miguelparra2020/channelsUsersTokiChats#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
