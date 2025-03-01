@@ -7,25 +7,18 @@ import socketHandler from "./sockets/socketHandler";
 
 const app = express();
 const server = http.createServer(app);
-
-// 🔹 Configurar CORS solo una vez y de forma explícita
-const corsOptions = {
-  origin: ["http://localhost:5173", "https://web.postman.co", "http://127.0.0.1:5500"], // Asegúrate de que esta URL sea correcta
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-app.use(express.json()); // Middleware para JSON
-
-// 🔹 Configurar Socket.io con las mismas opciones de CORS
 const io = new Server(server, {
-  cors: corsOptions,
+  cors: {
+    origin: ["http://localhost:5173", "https://tudominio.com"], // Ajusta según tu frontend
+    methods: ["GET", "POST"]
+  }
 });
 
-// 🔹 Inicializar las rutas y sockets después de la configuración
-app.use("/api/users", userRoutes);
+app.use(cors());
+app.use(express.json()); // Middleware para JSON
+app.use("/api/users", userRoutes); // Rutas de usuarios
+
+// Inicializar sockets
 socketHandler(io);
 
 const PORT = process.env.PORT || 3000;
