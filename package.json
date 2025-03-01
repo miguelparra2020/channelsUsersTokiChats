@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "ts-node src/server.ts",
-    "prod": "node dist/server.js"
+    "build": "rimraf dist && tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/miguelparra2020/channelsUsersTokiChats#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
